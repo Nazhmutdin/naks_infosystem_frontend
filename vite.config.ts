@@ -10,11 +10,6 @@ export default defineConfig({
     vue(),
     mkcert()
   ],
-  server: {
-    watch: {
-      usePolling: true
-    }
-  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

@@ -1,5 +1,7 @@
-FROM node:alpine
+FROM node:23-alpine
 
-WORKDIR /frontend
+WORKDIR /app
 
-CMD npm i && npm run dev -- --host "0.0.0.0"
+COPY . .
+
+RUN npm install
