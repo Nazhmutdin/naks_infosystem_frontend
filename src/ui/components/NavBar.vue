@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <router-link class="navbar-brand" :to="{ name: 'main' }">
-                <img class="logo-area" src="https://localhost/static/logo.png" alt="rencons"/>
+                <img class="logo-area" :src="logoUrl" alt="rencons"/>
             </router-link>
             <div class="navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav nav-underline content-links">
@@ -34,6 +34,8 @@
     const authStore = useAuthStore()
 
     const { setActiveLink } = useNavBarSetup()
+
+    const logoUrl = `https://${process.env.DOMAIN}/static/logo.png`
 
     onMounted(async () => {
         setActiveLink()

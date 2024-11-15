@@ -17,8 +17,9 @@ export async function previousPageAction(currentPage: Ref<number>, callback: Cal
 }
 
 export function createApiClient() {
+    console.log(process.env.API_DOMAIN)
     return axios.create({
-      baseURL: 'https://api.localhost',
+      baseURL: `https://${process.env.API_DOMAIN}`,
       withCredentials: true
     })
 }

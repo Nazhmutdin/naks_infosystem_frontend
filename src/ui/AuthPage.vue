@@ -57,13 +57,14 @@
     import { useAuthSetup } from '@/application/composables/auth_setup'
 
     const { login, password, isPasswordVisible, logIn, logInOnEnter } = useAuthSetup()
+    const backgroundImgUrl = `url(https://${process.env.DOMAIN}/static/constraction_site.png)`
 </script>
 
 <style scoped>
     .wrap {
         width: 100vw;
         height: 100vh;
-        background-image: url('https://localhost/static/constraction_site.png');
+        background-image: v-bind(backgroundImgUrl);
         background-size: cover;
     }
     .auth-window {
