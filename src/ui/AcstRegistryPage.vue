@@ -46,4 +46,7 @@
     .content-table-area {
         padding: 0 0 1rem 0;
     }
+    .wrap{
+        --default-content-width: 75%;
+    }
 </style>

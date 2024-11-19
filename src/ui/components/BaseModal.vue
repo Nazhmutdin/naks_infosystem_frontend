@@ -21,6 +21,6 @@
     }
     .modal-dialog {
         width: fit-content;
-        max-width: 65%; 
+        max-width: 70%; 
     }
 </style>

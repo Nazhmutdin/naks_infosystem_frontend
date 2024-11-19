@@ -1,25 +1,61 @@
-export interface AcstData {}
+export interface AcstData {
+    ident: string
+    acstNumber: string
+    method: string
+    materials: string[]
+    certificationDate: string
+    expirationDate: string
+    company: string
+    gtd: string[]
+    detailTypes: string[] | null
+    jointTypes: string[] | null
+    thiknessFrom: number | null
+    thiknessBefore: number | null
+    diameterFrom: number | null
+    diameterBefore: number | null
+    preheating: boolean | null
+    heatTreatment: boolean | null
+    html: string
+}
 
 
-export interface UpdateAcstData {}
+export interface UpdateAcstData {
+    ident?: string
+    acstNumber?: string
+    method?: string
+    materials?: string
+    certificationDate?: string
+    expirationDate?: string
+    company?: string
+    gtd?: string[]
+    detailTypes?: string[] | null
+    jointTypes?: string[] | null
+    thiknessFrom?: number | null
+    thiknessBefore?: number | null
+    diameterFrom?: number | null
+    diameterBefore?: number | null
+    preheating?: boolean | null
+    heatTreatment?: boolean | null
+    html?: string | null
+}
 
 
 export interface PersonalData {
     ident: string
     name: string
-    kleymo?: string
-    birthday?: string
-    expAge?: number
-    nation?: string
+    kleymo: string | null
+    birthday: string | null
+    expAge: number | null
+    nation: string | null
 }
 
 
 export interface UpdatePersonalData {
     name?: string
-    kleymo?: string
-    birthday?: string
-    expAge?: number
-    nation?: string
+    kleymo?: string | null
+    birthday?: string | null
+    expAge?: number | null
+    nation?: string | null
 }
 
 

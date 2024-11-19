@@ -2,9 +2,7 @@
     <base-table class="caption-top">
         <template v-slot:caption>
             <caption>
-                Naks certifications ({{
-                    sortedCerts.length
-                }})
+                Naks certifications ({{ sortedCerts.length }})
             </caption>
         </template>
         <template v-slot:header>

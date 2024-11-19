@@ -9,7 +9,7 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'personalRegistry' }">personal</router-link>
                     </li>
-                    <li v-show="false" class="nav-item">
+                    <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'acstRegistry' }">acst</router-link>
                     </li>
                 </ul>
