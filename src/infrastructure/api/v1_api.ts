@@ -1,4 +1,4 @@
-import { type AxiosInstance, type AxiosResponse } from 'axios'
+import type { AxiosInstance, AxiosResponse, AxiosError } from 'axios'
 import type {
     SelectPersonalNaksCertificationFilters,
     SelectNDTFilters,
@@ -7,14 +7,31 @@ import type {
     BaseSelectFilters
 } from '@/infrastructure/types'
 import { createApiClient } from '@/lib/funcs'
+import { ExceptionHandlerRegistry, type ResponseData, V1ServiceExcptionHandlers } from '@/lib/exc_handler'
 
 export class ApiV1Service<Filters extends BaseSelectFilters> {
     protected baseUrl: string
     protected apiClient: AxiosInstance
 
     constructor(baseUrl: string) {
+
+        const handlerRegistry = new ExceptionHandlerRegistry()
+
+        handlerRegistry.registerMany(V1ServiceExcptionHandlers)
         this.apiClient = createApiClient()
         this.baseUrl = baseUrl
+
+
+        this.apiClient.interceptors.response.use(
+            (response) => response,
+            (error: AxiosError<ResponseData, any>) => {
+                const code = error.response?.data.code
+
+                if (code) {
+                    handlerRegistry.handleError(code, error)
+                }
+            }
+        )
     }
 
     public async get(ident: string): Promise<AxiosResponse> {

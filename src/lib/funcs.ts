@@ -1,6 +1,10 @@
 import { type Ref } from "vue";
 
 import axios from 'axios'
+import { type AxiosError } from "axios"
+import { useAuthStore } from "@/infrastructure/store"
+import router from "@/infrastructure/router";
+
 
 export async function nextPageAction(currentPage: Ref<number>, maxPage: Ref<number>, callback: CallableFunction) {
     if (currentPage.value < maxPage.value) {
@@ -33,4 +37,28 @@ export function isPersonalNaksCertification(value: string) {
     const pattern = new RegExp('^[А-Я]+-[0-9А-Я]+-[IV]+-[0-9]{5}$')
 
     return pattern.test(value)
+}
+
+export const authenticateErrorHandler = async (error: AxiosError) => {
+    await useAuthStore().authenticate()
+
+    const config = error.config
+
+    if (config){
+        createApiClient()(config)
+    }
+}
+
+export const updateTokensErrorHandler = async (error: AxiosError) => {
+    await useAuthStore().updateTokens()
+
+    const config = error.config
+
+    if (config){
+        createApiClient()(config)
+    }
+}
+
+export const authPageErrorHandler = async (error: AxiosError) => {
+    router.push({ name: "auth" })
 }
