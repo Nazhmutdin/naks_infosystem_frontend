@@ -54,7 +54,7 @@ export class ExceptionHandlerRegistry{
 }
 
 
-export const V1ServiceExcptionHandlers = {
+export const ServiceExcptionHandlers = {
     access_token_expired: authenticateErrorHandler,
     refresh_token_expired: updateTokensErrorHandler,
     refresh_token_revoked: authPageErrorHandler,

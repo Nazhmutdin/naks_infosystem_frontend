@@ -8,7 +8,7 @@ export function usePersonalCertificationTableSetup() {
     const sortCerts = (certs: PersonalNaksCertificationData[]): Map<string, GeneralNaksCertificationsData> => {
         const result = new Map<string, GeneralNaksCertificationsData>()
 
-        for (const cert of certs.reverse()) {
+        for (const cert of certs) {
             const certNumber = cert.certificationNumber
 
             if (!result.has(certNumber)) {

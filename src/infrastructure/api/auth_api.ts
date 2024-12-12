@@ -1,11 +1,11 @@
 import { type AxiosInstance, type AxiosResponse } from 'axios'
-import { createApiClient } from '@/lib/funcs'
+import { createAuthAxiosClient } from '@/lib/funcs'
 
-export class AuthApiV1Service {
+export class AuthApiService {
     private apiClient: AxiosInstance
 
     constructor() {
-        this.apiClient = createApiClient()
+        this.apiClient = createAuthAxiosClient()
     }
 
     public async getCurrentUser() {

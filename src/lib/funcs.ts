@@ -20,11 +20,23 @@ export async function previousPageAction(currentPage: Ref<number>, callback: Cal
     }
 }
 
-export function createApiClient() {
+export function createAxiosClient(domain: string) {
     return axios.create({
-      baseURL: `https://${process.env.API_DOMAIN}`,
+      baseURL: `https://${domain}`,
       withCredentials: true
     })
+}
+
+export function createApiAxiosClient() {
+    return createAxiosClient(process.env.API_DOMAIN as string)
+}
+
+export function createFilesAxiosClient() {
+    return createAxiosClient(process.env.FILES_DOMAIN as string)
+}
+
+export function createAuthAxiosClient() {
+    return createAxiosClient(process.env.API_DOMAIN as string)
 }
 
 export function isKleymo(value: string) {
@@ -45,7 +57,7 @@ export const authenticateErrorHandler = async (error: AxiosError) => {
     const config = error.config
 
     if (config){
-        createApiClient()(config)
+        createAuthAxiosClient()(config)
     }
 }
 
@@ -55,7 +67,7 @@ export const updateTokensErrorHandler = async (error: AxiosError) => {
     const config = error.config
 
     if (config){
-        createApiClient()(config)
+        createAuthAxiosClient()(config)
     }
 }
 

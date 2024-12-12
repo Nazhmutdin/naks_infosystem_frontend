@@ -6,7 +6,7 @@ import type {
     SelectResponseData,
     SelectPersonalNaksCertificationFilters
 } from "@/infrastructure/types"
-import { createApiV1Service } from '@/infrastructure/api'
+import { createApiService } from '@/infrastructure/api'
 
 export const usePersonalCertificationStore = defineStore('personal-certification', {
     state: () => ({
@@ -19,19 +19,19 @@ export const usePersonalCertificationStore = defineStore('personal-certification
     }),
     actions: {
         async requestPersonalCertification(ident: string): Promise<PersonalNaksCertificationData> {
-            const service = createApiV1Service('personal-naks-certification')
+            const service = createApiService('personal-naks-certification')
 
             return (await service.get(ident)).data as PersonalNaksCertificationData
         },
 
         async requestByPersonalIdent(ident: string) {
-            const service = createApiV1Service('personal-naks-certification')
+            const service = createApiService('personal-naks-certification')
 
             return (await service.getByPersonalIdent(ident)).data as PersonalNaksCertificationData[]
         },
 
         async requestPersonalCertificationList(filters: SelectPersonalNaksCertificationFilters) {
-            const service = createApiV1Service('personal-naks-certification')
+            const service = createApiService('personal-naks-certification')
 
             return (await service.get_many(filters))
                 .data as SelectResponseData<PersonalNaksCertificationData>

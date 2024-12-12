@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { AuthApiV1Service } from '@/infrastructure/api'
+import { AuthApiService } from '@/infrastructure/api'
 import { SessionStorageService } from '@/infrastructure/services/session_storage'
 import { type UserData } from '@/application/types'
 
@@ -10,7 +10,7 @@ export const useAuthStore = defineStore('auth', {
     }),
     actions: {
         async getCurrentUser() {
-            const apiService = new AuthApiV1Service()
+            const apiService = new AuthApiService()
 
             const res = await apiService.getCurrentUser()
 
@@ -18,7 +18,7 @@ export const useAuthStore = defineStore('auth', {
         },
 
         async authenticate() {
-            const apiService = new AuthApiV1Service()
+            const apiService = new AuthApiService()
 
             const res = await apiService.authenticate()
 
@@ -30,7 +30,7 @@ export const useAuthStore = defineStore('auth', {
         },
 
         async login(login: string, password: string) {
-            const apiService = new AuthApiV1Service()
+            const apiService = new AuthApiService()
 
             const res = await apiService.login(login, password)
 
@@ -42,7 +42,7 @@ export const useAuthStore = defineStore('auth', {
         },
 
         async updateTokens() {
-            const apiService = new AuthApiV1Service()
+            const apiService = new AuthApiService()
 
             const res = await apiService.updateTokens()
 
@@ -54,7 +54,7 @@ export const useAuthStore = defineStore('auth', {
         },
 
         async logout() {
-            const apiService = new AuthApiV1Service()
+            const apiService = new AuthApiService()
 
             const res = await apiService.logout()
 

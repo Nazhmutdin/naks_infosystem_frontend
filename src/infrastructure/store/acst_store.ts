@@ -7,7 +7,7 @@ import type {
     SelectAcstFilters,
     SelectResponseData
 } from "@/infrastructure/types"
-import { createApiV1Service } from '@/infrastructure/api'
+import { createApiService } from '@/infrastructure/api'
 import router from '../router'
 
 export const useAcstStore = defineStore('acst', {
@@ -22,7 +22,7 @@ export const useAcstStore = defineStore('acst', {
     }),
     actions: {
         async deleteAcst(ident: string) {
-            const service = createApiV1Service('acst')
+            const service = createApiService('acst')
 
             await service.delete(ident)
 
@@ -30,7 +30,7 @@ export const useAcstStore = defineStore('acst', {
         },
 
         async updateAcst(ident: string, data: UpdateAcstData) {
-            const service = createApiV1Service('acst')
+            const service = createApiService('acst')
 
             await service.update(ident, data)
 
@@ -38,13 +38,13 @@ export const useAcstStore = defineStore('acst', {
         },
 
         async getAcst(ident: string) {
-            const service = createApiV1Service('acst')
+            const service = createApiService('acst')
 
             return (await service.get(ident)).data as AcstData
         },
 
         async selectAcsts() {
-            const service = createApiV1Service('acst')
+            const service = createApiService('acst')
 
             return (await service.get_many(this.selectFilters)).data as SelectResponseData<AcstData>
         }

@@ -7,7 +7,7 @@ import type {
     SelectPersonalFilters,
     SelectResponseData
 } from "@/infrastructure/types"
-import { createApiV1Service } from '@/infrastructure/api'
+import { createApiService } from '@/infrastructure/api'
 import router from '../router'
 
 export const usePersonalStore = defineStore('personal', {
@@ -22,7 +22,7 @@ export const usePersonalStore = defineStore('personal', {
     }),
     actions: {
         async deletePersonal(ident: string) {
-            const service = createApiV1Service('personal')
+            const service = createApiService('personal')
 
             await service.delete(ident)
 
@@ -30,7 +30,7 @@ export const usePersonalStore = defineStore('personal', {
         },
 
         async updatePersonal(ident: string, data: UpdatePersonalData) {
-            const service = createApiV1Service('personal')
+            const service = createApiService('personal')
 
             await service.update(ident, data)
 
@@ -38,13 +38,13 @@ export const usePersonalStore = defineStore('personal', {
         },
 
         async requestPersonal(ident: string) {
-            const service = createApiV1Service('personal')
+            const service = createApiService('personal')
 
             return (await service.get(ident)).data as PersonalData
         },
 
         async requestPersonals() {
-            const service = createApiV1Service('personal')
+            const service = createApiService('personal')
 
             return (await service.get_many(this.selectFilters))
                 .data as SelectResponseData<PersonalData>
