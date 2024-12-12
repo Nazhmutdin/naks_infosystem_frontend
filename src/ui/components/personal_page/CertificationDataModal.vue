@@ -31,26 +31,52 @@
         </div>
         <div class="tab-content" id="tab-content">
             <div class="tab-pane active" id="main-cert" role="tabpanel" aria-labelledby="main-cert-tab">
-                <div v-html="certData.certs?.main?.html" class="modal-body"></div>
+                <div class="modal-body">
+                    <div v-html="certData.certs?.main?.html" class="cert-content"></div>
+                    <div class="links">
+                        <links-table :cert="certData.certs?.main"></links-table>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane" id="renewal-one" role="tabpanel" aria-labelledby="renewal-one-tab">
-                <div v-html="certData.certs?.renewalOne?.html" class="modal-body"></div>
+                <div class="modal-body">
+                    <div v-html="certData.certs?.renewalOne?.html" class="cert-content"></div>
+                    <div class="links">
+                        <links-table :cert="certData.certs?.renewalOne"></links-table>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane" id="renewal-two" role="tabpanel" aria-labelledby="renewal-two-tab">
-                <div v-html="certData.certs?.renewalTwo?.html" class="modal-body"></div>
+                <div class="modal-body">
+                    <div v-html="certData.certs?.renewalTwo?.html" class="cert-content"></div>
+                    <div class="links">
+                        <links-table :cert="certData.certs?.renewalTwo"></links-table>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane" id="insert-one" role="tabpanel" aria-labelledby="insert-one-tab">
-                <div v-html="certData.certs?.insertOne?.html" class="modal-body"></div>
+                <div class="modal-body">
+                    <div v-html="certData.certs?.insertOne?.html" class="cert-content"></div>
+                    <div class="links">
+                        <links-table :cert="certData.certs?.insertOne"></links-table>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane" id="insert-two" role="tabpanel" aria-labelledby="insert-two-tab">
-                <div v-html="certData.certs?.insertTwo?.html" class="modal-body"></div>
+                <div class="modal-body">
+                    <div v-html="certData.certs?.insertTwo?.html" class="cert-content"></div>
+                    <div class="links">
+                        <links-table :cert="certData.certs?.insertTwo"></links-table>
+                    </div>
+                </div>
             </div>
         </div>
     </base-modal>
 </template>
 
 <script setup lang="ts">
-    import type { GeneralNaksCertificationsData } from '@/application/types'
+    import type { GeneralNaksCertificationsData, PersonalNaksCertificationData } from '@/application/types'
+    import LinksTable from './LinksTable.vue';
     import BaseModal from '../BaseModal.vue'
 
     defineProps<{

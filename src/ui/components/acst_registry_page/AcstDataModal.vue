@@ -1,9 +1,11 @@
 <template>
     <base-modal>
-        <div class="modal-header">
-            {{ acstData.acstNumber }}
+        <div class="modal-body">
+            <div v-html="acst.html" class="acst-content"></div>
+            <div class="link-area">
+                <a :href="acstFileLink(getAcstNumber(acst))" target="_blank" class="acst-link">{{ getAcstNumber(acst) }}</a>
+            </div>
         </div>
-        <div v-html="acstData.html" class="modal-body"></div>
     </base-modal>
 </template>
 
@@ -12,9 +14,25 @@
     import BaseModal from '../BaseModal.vue'
     
     defineProps<{
-        acstData: AcstData
+        acst: AcstData
     }>()
+
+    const getAcstNumber = (AcstData: AcstData | undefined) => {
+        if (AcstData === undefined){
+            return ""
+        }
+
+        return AcstData.acstNumber
+    }
+
+    const acstFileLink = (acstNumber: string): string => {
+
+        return `https://${process.env.FILES_DOMAIN}/acst/by-number/${acstNumber}/download`
+    } 
 </script>
 
 <style scoped>
+    .link-area{
+        text-align: center;
+    }
 </style>

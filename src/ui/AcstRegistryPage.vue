@@ -5,7 +5,7 @@
                 <search-bar
                     @searchBarInput="searchBarInputProcess"
                     :placeholder="'acst numbers'">
-                    <base-button  :class="'btn-outline-secondary'"  data-bs-toggle="modal" data-bs-target="#FiltersModal">filters</base-button>
+                    <base-button :class="'btn-outline-secondary'"  data-bs-toggle="modal" data-bs-target="#FiltersModal">filters</base-button>
                     <acst-filters-modal id="FiltersModal"></acst-filters-modal>
                     <base-button :class="'btn-outline-secondary'" @click="requestAcsts">search</base-button>
                 </search-bar>

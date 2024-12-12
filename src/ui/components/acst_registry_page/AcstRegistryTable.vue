@@ -40,7 +40,7 @@
             </tbody>
         </template>
     </base-table>
-    <acst-data-modal id="AcstDataModal" :acst-data="selectedAcst"></acst-data-modal>
+    <acst-data-modal id="AcstDataModal" :acst="selectedAcst"></acst-data-modal>
 </template>
 
 <script setup lang="ts">
@@ -75,6 +75,9 @@
 </script>
 
 <style scoped>
+    .acst-data-toggler-row-cell button{
+        padding: 0;
+    }
     .acst-number-cell{
         width: fit-content;
     }

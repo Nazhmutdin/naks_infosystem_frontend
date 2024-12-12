@@ -71,10 +71,10 @@
 
     const { personalCertificationList } = storeToRefs(personalNaksCertificationStore)
     let selectedCertData = ref({} as GeneralNaksCertificationsData)
-    let sortedCerts: Ref<[string, GeneralNaksCertificationsData][]> = ref(Array.from(sortCerts(personalCertificationList.value)).reverse())
+    let sortedCerts: Ref<[string, GeneralNaksCertificationsData][]> = ref(Array.from(sortCerts(personalCertificationList.value)))
 
     watch(personalCertificationList, (certs) => {
-        sortedCerts.value = Array.from(sortCerts(certs)).reverse()
+        sortedCerts.value = Array.from(sortCerts(certs))
     })
 </script>
 

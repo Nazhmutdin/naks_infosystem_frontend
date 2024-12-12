@@ -57,7 +57,7 @@
 <style scoped>
     .name-row-cell {
         text-align: left;
-        padding: 5px 20px;
+        padding: 0 20px;
     }
     .personal-link {
         text-decoration: none;

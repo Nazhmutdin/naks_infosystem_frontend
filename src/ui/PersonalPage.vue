@@ -32,10 +32,9 @@
         </div>
         <div class="other-personal-data-area">
             <certifications-table
-                v-if="personalCertificationStore.personalCertificationList.length > 0"></certifications-table>
-            <div v-else>No certs</div>
-            <ndt-table v-if="ndtStore.ndtList.length > 0" :ndts="ndtStore.ndtList"></ndt-table>
-            <div v-else>No ndts</div>
+                v-show="personalCertificationStore.personalCertificationList.length > 0">
+            </certifications-table>
+            <ndt-table v-show="ndtStore.ndtList.length > 0" :ndts="ndtStore.ndtList"></ndt-table>
         </div>
     </div>
     <update-action-modal id="UpdatePersonalData"></update-action-modal>
@@ -103,7 +102,6 @@
     }
     .persona-data-actions{
         display: none;
-        /* display: flex; */
         margin: 0 1rem;
         flex-direction: row;
         gap: 5px;
