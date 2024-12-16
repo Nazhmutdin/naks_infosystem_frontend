@@ -52,7 +52,7 @@ export class ApiService<Filters extends BaseSelectFilters> extends ApiCRUDMixin 
     }
 
     public async get_many(filters: Filters): Promise<AxiosResponse> {
-        return await this.apiClient.get(`${this.baseUrl}/select`, { params: filters })
+        return await this.apiClient.get(`${this.baseUrl}/select`, { params: filters, paramsSerializer: { indexes: null } })
     }
 }
 
