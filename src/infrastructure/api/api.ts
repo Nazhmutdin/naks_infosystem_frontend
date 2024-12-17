@@ -15,7 +15,7 @@ export class ApiCRUDMixin {
     protected apiClient!: AxiosInstance
 
     public async get(ident: string): Promise<AxiosResponse> {
-        return await this.apiClient.get(`${this.baseUrl}/${ident}`)
+        return await this.apiClient.get(this.baseUrl, { params: { ident: ident } })
     }
 
     public async create(data: object): Promise<AxiosResponse> {
@@ -25,13 +25,13 @@ export class ApiCRUDMixin {
     }
 
     public async update(ident: string, data: object): Promise<AxiosResponse> {
-        return await this.apiClient.patch(`${this.baseUrl}/${ident}`, data).then((res) => {
+        return await this.apiClient.patch(this.baseUrl, data, { params: { ident: ident } }).then((res) => {
             return res
         })
     }
 
     public async delete(ident: string): Promise<AxiosResponse> {
-        return await this.apiClient.delete(`${this.baseUrl}/${ident}`).then((res) => {
+        return await this.apiClient.delete(this.baseUrl, { params: { ident: ident } }).then((res) => {
             return res
         })
     }
@@ -69,7 +69,7 @@ class PersonalNaksCertificationApiService extends ApiService<SelectPersonalNaksC
     }
 
     public async getByPersonalIdent(ident: string): Promise<AxiosResponse> {
-        return await this.apiClient.get(`${this.baseUrl}/personal/${ident}`)
+        return await this.apiClient.get(`${this.baseUrl}/personal`, { params: { personal_ident: ident } })
     }
 }
 
@@ -79,7 +79,7 @@ class NDTApiService extends ApiService<SelectNDTFilters> {
     }
 
     public async getByPersonalIdent(ident: string): Promise<AxiosResponse> {
-        return await this.apiClient.get(`${this.baseUrl}/personal/${ident}`)
+        return await this.apiClient.get(`${this.baseUrl}/personal`, { params: { personal_ident: ident } })
     }
 }
 
