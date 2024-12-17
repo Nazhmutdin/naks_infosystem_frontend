@@ -43,19 +43,19 @@ export interface UpdateAcstData {
 export interface PersonalData {
     ident: string
     name: string
-    kleymo: string | null
-    birthday: string | null
-    expAge: number | null
-    nation: string | null
+    kleymo?: string
+    birthday?: string
+    expAge?: number
+    nation?: string
 }
 
 
 export interface UpdatePersonalData {
     name?: string
-    kleymo?: string | null
-    birthday?: string | null
-    expAge?: number | null
-    nation?: string | null
+    kleymo?: string
+    birthday?: string
+    expAge?: number
+    nation?: string
 }
 
 
