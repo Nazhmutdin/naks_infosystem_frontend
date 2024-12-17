@@ -9,6 +9,7 @@ import PersonalRegistryPage from '@/ui/PersonalRegistryPage.vue'
 import AcstRegistryPage from '@/ui/AcstRegistryPage.vue'
 import PersonalPage from '@/ui/PersonalPage.vue'
 import AuthPage from '@/ui/AuthPage.vue'
+import EdoPage from '@/ui/EdoPage.vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -35,6 +36,11 @@ const routes: RouteRecordRaw[] = [
         name: 'acstRegistry',
         path: '/acst-registry',
         component: AcstRegistryPage
+    },
+    {
+        name: 'edo',
+        path: '/edo',
+        component: EdoPage
     },
     {
         name: 'personal',

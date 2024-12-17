@@ -12,6 +12,9 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'acstRegistry' }">acst</router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'edo' }">edo</router-link>
+                    </li>
                 </ul>
                 <ul class="navbar-nav nav-underline other-links">
                     <li class="nav-item">
